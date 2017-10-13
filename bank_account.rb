@@ -22,6 +22,16 @@ class BankAccount
         account.deposit(amount)   
     end
     
+    def self.update_opening_balance(amount)
+        @@minimum_opening_balance = amount 
+    end 
+    
+    def charge(account, overdraft_account)
+    if overdraft(amount) > account(balance)
+        @@balance = charge(.10*amount)
+        amount.deposit(overdraft_account)
+        
+        
 end
 
 

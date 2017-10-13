@@ -33,9 +33,18 @@ describe BankAccount do
       expect(account_two.balance).to eq(700)      
   end
     
-  it "Throws an error if minimum opening balance of 200 is not met" do
+  it "throws an error if minimum opening balance of 200 is not met" do
       expect { BankAccount.new(100, "Sarah") }.to raise_error(ArgumentError)
   end
     
-  it "allows the user to change the minimum balance"
+  it "allows the user to change the minimum balance" do
+      BankAccount.update_opening_balance(500)
+      expect { BankAccount.new(300, "Sarah") }.to raise_error(ArgumentError)
+      expect { BankAccount.new(500, "Sarah") }.to_not raise_error
+  end
+    
+  it "charges the user a fee if there is an overdraft" do
+      account = BankAccount.new(500, "Sarah")
+  end     
+    
 end
